@@ -1,9 +1,10 @@
 terraform {
   cloud {
-    organization = "your-tfc-organization"
+    organization = "ReveCloud"
 
     workspaces {
-      name = "hardened-ec2-workspace"
+      name = "TFC"
     }
   }
+
 }
