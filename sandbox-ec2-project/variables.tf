@@ -10,11 +10,13 @@ variable "environment" {
 
 variable "vpc_id" {
   type        = string
+  default    = "vpc-0622a59899133bf68"
   description = "ID of the existing hardened VPC"
 }
 
 variable "private_subnet_id" {
   type        = string
+  default     = "subnet-02a7049b4e44c2a8c"
   description = "ID of the existing subnet to deploy the EC2 instance in"
 }
 
@@ -40,3 +42,4 @@ variable "tags" {
   }
 
 }
+
