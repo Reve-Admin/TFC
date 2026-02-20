@@ -1,6 +1,6 @@
 variable "aws_region" {
   type    = string
-  default = "us-east-1"
+  default = "ap-south-1"
 }
 
 variable "environment" {
@@ -38,4 +38,5 @@ variable "tags" {
     Environment = "sandbox"
     AutoStop    = "true" # Common sandbox tag for cost-saving Lambda scripts
   }
+
 }
