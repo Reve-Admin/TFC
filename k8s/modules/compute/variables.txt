@@ -1,5 +1,5 @@
 variable "vpc_id" {
-  type        = list(string)
+  type        = string
   description = "ID of the existing VPC"
 }
 
@@ -27,3 +27,4 @@ variable "tags" {
   type        = map(string)
   description = "Common tags to apply to all compute resources"
 }
+
