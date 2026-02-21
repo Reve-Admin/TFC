@@ -83,7 +83,7 @@ resource "aws_instance" "k8s_master" {
 
 # Kubernetes Worker Nodes
 resource "aws_instance" "k8s_workers" {
-  count                       = 2
+  count                       = 3
   ami                         = data.aws_ami.amazon_linux_arm64.id
   instance_type               = "m7g.large"
   subnet_id                   = element(var.private_subnet_ids, count.index)
@@ -139,3 +139,4 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   tags = var.tags
 
 }
+
