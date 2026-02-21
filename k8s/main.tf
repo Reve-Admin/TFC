@@ -7,9 +7,13 @@ module "network" {
   tags               = var.tags
 }
 
-# Updated Module Call
 module "database" {
-  source             = "./modules/database"
+  source = "./modules/database"
+
+  providers = {
+    pinecone = pinecone
+  }
+
   vpc_id             = var.vpc_id
   private_subnet_ids = var.private_subnet_ids
   db_sg_id           = module.network.rds_sg_id
@@ -28,3 +32,4 @@ module "compute" {
   tags               = var.tags
 
 }
+
