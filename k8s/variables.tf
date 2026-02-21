@@ -43,3 +43,9 @@ variable "tags" {
   }
 
 }
+
+# Add this to your root variables.tf
+variable "acm_certificate_arn" {
+  type        = string
+  description = "ARN of the existing ACM certificate for the ALB HTTPS listener"
+}
