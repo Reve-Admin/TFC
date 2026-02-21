@@ -62,14 +62,17 @@ resource "aws_db_instance" "postgres" {
 
 # Pinecone Serverless Index
 resource "pinecone_index" "vector_db" {
-  name      = "${var.environment}-llm-index"
-  dimension = 1536 # Adjust based on the specific embedding model used
-  metric    = "cosine"
+  name       = "${var.environment}-vector-db"
+  dimension  = 1536
+  metric     = "cosine"
 
-  spec {
-    serverless {
+  spec = {
+    serverless = {
       cloud  = "aws"
-      region = "us-east-1"
+      region = var.aws_region
     }
   }
+
+  tags = var.tags
 }
+
