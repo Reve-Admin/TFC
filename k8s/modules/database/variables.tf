@@ -28,3 +28,7 @@ variable "tags" {
   type        = map(string)
   description = "Common tags to apply to all database resources"
 }
+variable "aws_region" {
+  description = "AWS region for Pinecone serverless index"
+  type        = string
+}
