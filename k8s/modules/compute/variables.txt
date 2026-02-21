@@ -1,4 +1,29 @@
-variable "vpc_id" { type = string }
-variable "public_subnet_ids" { type = list(string) }
-variable "environment" { type = string }
-variable "tags" { type = map(string) }
+variable "vpc_id" {
+  type        = string
+  description = "ID of the existing VPC"
+}
+
+variable "private_subnet_ids" {
+  type        = list(string)
+  description = "List of private subnet IDs for deploying the Kubernetes nodes"
+}
+
+variable "k8s_sg_id" {
+  type        = string
+  description = "The ID of the security group assigned to the Kubernetes nodes"
+}
+
+variable "alb_target_group_arn" {
+  type        = string
+  description = "The ARN of the Application Load Balancer Target Group"
+}
+
+variable "environment" {
+  type        = string
+  description = "The environment name (e.g., dev, staging, prod)"
+}
+
+variable "tags" {
+  type        = map(string)
+  description = "Common tags to apply to all compute resources"
+}
