@@ -70,7 +70,9 @@ resource "aws_instance" "k8s_master" {
   monitoring                  = true
 
   metadata_options {
-    http_tokens = "required" # Enforce IMDSv2
+      http_endpoint = "enabled"
+      http_tokens   = "required"
+      http_put_response_hop_limit = 2
   }
 
   root_block_device {
@@ -139,4 +141,15 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   tags = var.tags
 
 }
-
+resource "aws_iam_role_policy_attachment" "ssm_core" {
+  role       = aws_iam_role.k8s_node_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+resource "aws_iam_role_policy_attachment" "cloudwatch_agent" {
+  role       = aws_iam_role.k8s_node_role.name
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+}
+resource "aws_iam_role_policy_attachment" "ec2_readonly" {
+  role       = aws_iam_role.k8s_node_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"
+}
