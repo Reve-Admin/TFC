@@ -14,6 +14,7 @@ module "database" {
     pinecone = pinecone
   }
 
+  aws_region         = var.aws_region   # ← ADD THIS LINE
   vpc_id             = var.vpc_id
   private_subnet_ids = var.private_subnet_ids
   db_sg_id           = module.network.rds_sg_id
@@ -32,4 +33,5 @@ module "compute" {
   tags               = var.tags
 
 }
+
 
