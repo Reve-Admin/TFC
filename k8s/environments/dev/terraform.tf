@@ -1,9 +1,10 @@
-aws_region         = "us-east-1"
+aws_region         = "ap-south-1"
 environment        = "dev"
-vpc_id             = "vpc-0123456789abcdef0"
-private_subnet_ids = ["subnet-0aaaa1111", "subnet-0bbbb2222", "subnet-0cccc3333"]
-public_subnet_ids  = ["subnet-0dddd4444", "subnet-0eeee5555"]
+vpc_id             = "vpc-0622a59899133bf68"
+private_subnet_ids = ["subnet-02a7049b4e44c2a8c", "subnet-01b3c7044809a3170"]
+public_subnet_ids  = ["subnet-02b70761ff1a27bbe", "subnet-08c9a6964e50e0c9c"]
 tags = {
   Environment = "dev"
   Project     = "K8s-AI-Platform"
+
 }
