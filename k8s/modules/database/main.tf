@@ -72,7 +72,6 @@ resource "pinecone_index" "vector_db" {
       region = var.aws_region
     }
   }
-
-  tags = var.tags
 }
+
 
