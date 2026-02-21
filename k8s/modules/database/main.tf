@@ -39,7 +39,7 @@ resource "aws_db_instance" "postgres" {
   allocated_storage           = 200
   storage_type                = "gp3"
   engine                      = "postgres"
-  engine_version              = "15.5" 
+  engine_version              = "14.11" 
   instance_class              = "db.t4g.large"
   username                    = "dbadmin"
   password                    = var.db_password
@@ -73,6 +73,7 @@ resource "pinecone_index" "vector_db" {
     }
   }
 }
+
 
 
 
